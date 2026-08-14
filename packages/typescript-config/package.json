@@ -1,0 +1,14 @@
+{
+  "name": "@ajudge/typescript-config",
+  "version": "0.0.0",
+  "description": "Shared TypeScript configuration for ajudge",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./base": "./base.json",
+    "./back": "./back.json",
+    "./back-build": "./back-build.json",
+    "./back-test": "./back-test.json"
+  }
+}
