@@ -1,5 +1,0 @@
-{
-  "$schema": "https://biomejs.dev/schemas/2.4.6/schema.json",
-  "root": false,
-  "extends": ["@ajudge/biome-config/base", "@ajudge/biome-config/back"]
-}

@@ -8,6 +8,7 @@
   "packageManager": "npm@10.9.4",
   "workspaces": [
     "apps/back",
+    "apps/extension",
     "apps/front",
     "packages/biome-config",
     "packages/typescript-config"
@@ -16,10 +17,10 @@
     "dev": "concurrently --kill-others-on-fail --names back,front \"npm --workspace @ajudge/back run dev\" \"npm --workspace @ajudge/front run dev\"",
     "dev:back": "npm --workspace @ajudge/back run dev",
     "dev:front": "npm --workspace @ajudge/front run dev",
-    "build": "npm --workspace @ajudge/back run build && npm --workspace @ajudge/front run build",
+    "build": "npm --workspace @ajudge/back run build && npm --workspace @ajudge/front run build && npm --workspace @ajudge/extension run build",
     "build:back": "npm --workspace @ajudge/back run build",
     "build:front": "npm --workspace @ajudge/front run build",
-    "typecheck": "npm --workspace @ajudge/back run typecheck && npm --workspace @ajudge/front run typecheck",
+    "typecheck": "npm --workspace @ajudge/back run typecheck && npm --workspace @ajudge/front run typecheck && npm --workspace @ajudge/extension run typecheck",
     "check": "biome check apps",
     "check:back": "biome check apps/ajudge-back",
     "check:front": "biome check apps/ajudge-front",
