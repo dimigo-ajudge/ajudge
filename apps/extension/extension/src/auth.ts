@@ -81,7 +81,11 @@ async function storeSession(session: AuthSession): Promise<void> {
 }
 
 export async function ping(): Promise<void> {
-  await request<unknown>("/auth/ping");
+  const session = await getStoredSession();
+  if (!session) throw new Error("No login session is stored.");
+  await request<unknown>("/auth/ping", {
+    headers: { Authorization: `Bearer ${session.accessToken}` },
+  });
 }
 
 export async function loginWithBackend(): Promise<AuthSession> {

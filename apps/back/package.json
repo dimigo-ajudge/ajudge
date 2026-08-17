@@ -1,0 +1,15 @@
+{
+  "name": "@ajudge/back",
+  "version": "0.1.0",
+  "description": "Simple Python backend for Ajudge authentication.",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "python3 -m compileall -q main.py tests",
+    "clean": "python3 -c \"import shutil; shutil.rmtree('__pycache__', ignore_errors=True); shutil.rmtree('tests/__pycache__', ignore_errors=True)\"",
+    "dev": "python3 main.py",
+    "start": "python3 main.py",
+    "test": "python3 -m unittest discover -s tests -v",
+    "typecheck": "python3 -m py_compile main.py tests/test_main.py"
+  }
+}
