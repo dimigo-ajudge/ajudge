@@ -219,8 +219,8 @@ def is_allowed_origin(origin: str) -> bool:
     return parsed.scheme == "http" and parsed.hostname in {"localhost", "127.0.0.1"}
 
 
-class AjudgeHandler(BaseHTTPRequestHandler):
-    server_version = "Ajudge/0.1"
+class TrustLayerHandler(BaseHTTPRequestHandler):
+    server_version = "TrustLayer/0.1"
 
     def do_OPTIONS(self) -> None:
         self.send_response(HTTPStatus.NO_CONTENT)
@@ -381,8 +381,8 @@ class AjudgeHandler(BaseHTTPRequestHandler):
 
 
 def run() -> None:
-    server = ThreadingHTTPServer(("0.0.0.0", PORT), AjudgeHandler)
-    print(f"Ajudge backend listening on http://localhost:{PORT}")
+    server = ThreadingHTTPServer(("0.0.0.0", PORT), TrustLayerHandler)
+    print(f"TrustLayer backend listening on http://localhost:{PORT}")
     try:
         server.serve_forever()
     except KeyboardInterrupt:

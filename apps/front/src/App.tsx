@@ -30,9 +30,9 @@ const trustFeatures = [
 
 function Brand() {
   return (
-    <div className="brand" aria-label="Ajudge">
-      <img src="/ajudge-mark.svg" alt="" />
-      <span>Ajudge</span>
+    <div className="brand" aria-label="TrustLayer">
+      <img src="/trustlayer-mark.svg" alt="" />
+      <span>TrustLayer</span>
       <small>TrustLayer</small>
     </div>
   );
@@ -40,10 +40,10 @@ function Brand() {
 
 function TrustLayerBrand() {
   return (
-    <div className="trustlayer-brand" aria-label="TrustLayer by Ajudge">
-      <img src="/ajudge-mark.svg" alt="" />
+    <div className="trustlayer-brand" aria-label="TrustLayer">
+      <img src="/trustlayer-mark.svg" alt="" />
       <span>TrustLayer</span>
-      <small>by Ajudge</small>
+      <small>AI trust infrastructure</small>
     </div>
   );
 }
@@ -230,7 +230,7 @@ function LoginPage() {
         <Brand />
         <div className="login-copy">
           <p className="eyebrow">AI trust infrastructure</p>
-          <h1 id="login-title">Sign in to Ajudge</h1>
+          <h1 id="login-title">Sign in to TrustLayer</h1>
           <p>Use your Google account to access the TrustLayer workspace.</p>
         </div>
         <button className="google-button" type="button" onClick={startLogin} disabled={isStarting}>
@@ -328,7 +328,7 @@ function DashboardPage() {
         <section className="dashboard-heading">
           <p className="eyebrow">Workspace</p>
           <h1>Authentication</h1>
-          <p>Your Ajudge services are connected to the same backend session.</p>
+          <p>Your TrustLayer services are connected to the same backend session.</p>
         </section>
 
         <section className="account-section" aria-labelledby="account-heading">

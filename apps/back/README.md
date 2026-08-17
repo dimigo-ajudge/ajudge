@@ -1,4 +1,4 @@
-# Ajudge Python backend
+# TrustLayer Python backend
 
 This is a small, dependency-free Python backend for the extension login flow.
 

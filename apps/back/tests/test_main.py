@@ -15,7 +15,7 @@ import main as backend
 class BackendTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        cls.server = ThreadingHTTPServer(("127.0.0.1", 0), backend.AjudgeHandler)
+        cls.server = ThreadingHTTPServer(("127.0.0.1", 0), backend.TrustLayerHandler)
         cls.thread = threading.Thread(target=cls.server.serve_forever, daemon=True)
         cls.thread.start()
         cls.origin = f"http://127.0.0.1:{cls.server.server_port}"

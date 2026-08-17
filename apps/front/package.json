@@ -1,7 +1,7 @@
 {
-  "name": "@ajudge/front",
+  "name": "@trustlayer/front",
   "version": "0.1.0",
-  "description": "Ajudge authentication workspace.",
+  "description": "TrustLayer authentication workspace.",
   "author": "lanzarote0tr <me@trillion-won.com>",
   "private": true,
   "license": "UNLICENSED",

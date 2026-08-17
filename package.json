@@ -1,7 +1,7 @@
 {
-  "name": "ajudge",
+  "name": "trustlayer",
   "version": "0.1.0",
-  "description": "Ajudge TrustLayer browser extension, web client, and authentication backend.",
+  "description": "TrustLayer browser extension, web client, and authentication backend.",
   "author": "lanzarote0tr <me@trillion-won.com>",
   "license": "UNLICENSED",
   "private": true,
@@ -13,19 +13,19 @@
     "packages/typescript-config"
   ],
   "scripts": {
-    "dev": "concurrently --kill-others-on-fail --names back,front \"npm --workspace @ajudge/back run dev\" \"npm --workspace @ajudge/front run dev\"",
-    "dev:back": "npm --workspace @ajudge/back run dev",
-    "dev:extension": "npm --workspace @ajudge/extension run dev",
-    "dev:front": "npm --workspace @ajudge/front run dev",
-    "build": "npm --workspace @ajudge/back run build && npm --workspace @ajudge/front run build && npm --workspace @ajudge/extension run build",
-    "build:back": "npm --workspace @ajudge/back run build",
-    "build:extension": "npm --workspace @ajudge/extension run build",
-    "build:front": "npm --workspace @ajudge/front run build",
-    "typecheck": "npm --workspace @ajudge/back run typecheck && npm --workspace @ajudge/front run typecheck && npm --workspace @ajudge/extension run typecheck",
-    "test": "npm --workspace @ajudge/back run test",
-    "lint": "npm --workspace @ajudge/front run lint && npm --workspace @ajudge/extension run lint",
+    "dev": "concurrently --kill-others-on-fail --names back,front \"npm --workspace @trustlayer/back run dev\" \"npm --workspace @trustlayer/front run dev\"",
+    "dev:back": "npm --workspace @trustlayer/back run dev",
+    "dev:extension": "npm --workspace @trustlayer/extension run dev",
+    "dev:front": "npm --workspace @trustlayer/front run dev",
+    "build": "npm --workspace @trustlayer/back run build && npm --workspace @trustlayer/front run build && npm --workspace @trustlayer/extension run build",
+    "build:back": "npm --workspace @trustlayer/back run build",
+    "build:extension": "npm --workspace @trustlayer/extension run build",
+    "build:front": "npm --workspace @trustlayer/front run build",
+    "typecheck": "npm --workspace @trustlayer/back run typecheck && npm --workspace @trustlayer/front run typecheck && npm --workspace @trustlayer/extension run typecheck",
+    "test": "npm --workspace @trustlayer/back run test",
+    "lint": "npm --workspace @trustlayer/front run lint && npm --workspace @trustlayer/extension run lint",
     "check": "npm run typecheck && npm run lint && npm run test",
-    "clean": "npm --workspace @ajudge/back run clean && npm --workspace @ajudge/front run clean && npm --workspace @ajudge/extension run clean"
+    "clean": "npm --workspace @trustlayer/back run clean && npm --workspace @trustlayer/front run clean && npm --workspace @trustlayer/extension run clean"
   },
   "devDependencies": {
     "concurrently": "^9.2.1"

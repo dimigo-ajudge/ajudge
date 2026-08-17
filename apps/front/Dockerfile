@@ -11,7 +11,7 @@ COPY packages/typescript-config/package.json packages/typescript-config/package.
 RUN npm ci --ignore-scripts
 
 COPY apps/front/ apps/front/
-RUN npm --workspace @ajudge/front run build
+RUN npm --workspace @trustlayer/front run build
 
 FROM nginx:1.27.2-alpine-slim
 

@@ -1,7 +1,7 @@
 {
-  "name": "@ajudge/back",
+  "name": "@trustlayer/back",
   "version": "0.1.0",
-  "description": "Simple Python backend for Ajudge authentication.",
+  "description": "Simple Python backend for TrustLayer authentication.",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {

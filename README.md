@@ -1,8 +1,7 @@
-# Ajudge
+# TrustLayer
 
-Ajudge is a prototype trust infrastructure for social content. The browser
-extension is presented as **TrustLayer by Ajudge** and uses the same Google
-authentication backend as the web workspace.
+TrustLayer is a prototype trust infrastructure for social content. The browser
+extension and web workspace use the same Google authentication backend.
 
 ## Repository
 
@@ -27,11 +26,11 @@ sequenceDiagram
   Google-->>Client: Authorization code
   Client->>API: Exchange code
   API->>Google: Verify code and load profile
-  API-->>Client: Ajudge access and refresh session
+  API-->>Client: TrustLayer access and refresh session
 ```
 
 The web client stores the session in HTTP-only cookies. The extension stores
-the returned Ajudge tokens in extension-local storage and sends the access
+the returned TrustLayer tokens in extension-local storage and sends the access
 token as a bearer token.
 
 ## Local setup

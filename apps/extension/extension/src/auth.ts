@@ -1,7 +1,7 @@
 import { ExtensionPlatform } from "./platform";
 
-const BACKEND_ORIGIN_KEY = "ajudgeBackendOrigin";
-const AUTH_SESSION_KEY = "ajudgeAuthSession";
+const BACKEND_ORIGIN_KEY = "trustlayerBackendOrigin";
+const AUTH_SESSION_KEY = "trustlayerAuthSession";
 const DEFAULT_BACKEND_ORIGIN = "http://localhost:3000";
 
 export type AuthSession = {
