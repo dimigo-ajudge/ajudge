@@ -77,28 +77,19 @@ input {
   border-bottom: 1px solid #eeeeee;
 }
 
-.score {
-  position: relative;
+.connection-mark {
   display: grid;
   width: 68px;
   height: 68px;
   flex: 0 0 auto;
   place-items: center;
+  border: 7px solid #e8edf5;
+  border-top-color: var(--blue);
   border-radius: 50%;
-  background: conic-gradient(var(--blue) 84%, #e8edf5 0);
-}
-
-.score::before {
-  position: absolute;
-  inset: 7px;
-  border-radius: 50%;
+  color: #285fae;
   background: #ffffff;
-  content: "";
-}
-
-.score b {
-  position: relative;
-  font-size: 22px;
+  font-size: 20px;
+  font-weight: 900;
 }
 
 h1,

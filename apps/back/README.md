@@ -4,8 +4,8 @@ This is a small, dependency-free Python backend for the extension login flow.
 
 ## Run
 
-Set `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in the repository `.env` or in
-`apps/back/.env`, then run:
+Copy the repository `.env.example` to `.env`, set `GOOGLE_CLIENT_ID` and
+`GOOGLE_CLIENT_SECRET`, then run:
 
 ```sh
 npm run dev:back
@@ -24,8 +24,9 @@ URI in the Google OAuth client. Chromium uses a URL shaped like
 - `POST /auth/login/google/callback`
 - `POST /auth/refresh`
 - `GET /auth/ping`
+- `GET /auth/me`
 - `GET /auth/permission`
-- `GET /auth/logout`
+- `POST /auth/logout`
 
 Sessions are intentionally in memory. Restarting the backend logs everyone out;
 replace `SessionStore` with persistent storage before production use.

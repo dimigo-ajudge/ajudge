@@ -1,7 +1,7 @@
 {
   "name": "ajudge",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Ajudge TrustLayer browser extension, web client, and authentication backend.",
   "author": "lanzarote0tr <me@trillion-won.com>",
   "license": "UNLICENSED",
   "private": true,
@@ -10,36 +10,24 @@
     "apps/back",
     "apps/extension",
     "apps/front",
-    "packages/biome-config",
     "packages/typescript-config"
   ],
   "scripts": {
     "dev": "concurrently --kill-others-on-fail --names back,front \"npm --workspace @ajudge/back run dev\" \"npm --workspace @ajudge/front run dev\"",
     "dev:back": "npm --workspace @ajudge/back run dev",
+    "dev:extension": "npm --workspace @ajudge/extension run dev",
     "dev:front": "npm --workspace @ajudge/front run dev",
     "build": "npm --workspace @ajudge/back run build && npm --workspace @ajudge/front run build && npm --workspace @ajudge/extension run build",
     "build:back": "npm --workspace @ajudge/back run build",
+    "build:extension": "npm --workspace @ajudge/extension run build",
     "build:front": "npm --workspace @ajudge/front run build",
     "typecheck": "npm --workspace @ajudge/back run typecheck && npm --workspace @ajudge/front run typecheck && npm --workspace @ajudge/extension run typecheck",
-    "check": "biome check apps",
-    "check:back": "biome check apps/ajudge-back",
-    "check:front": "biome check apps/ajudge-front",
-    "check:write": "biome check --write apps",
-    "check:write:back": "biome check --write apps/ajudge-back",
-    "check:write:front": "biome check --write apps/ajudge-front",
-    "lint": "biome lint apps",
-    "lint:back": "biome lint apps/ajudge-back",
-    "lint:front": "biome lint apps/ajudge-front",
-    "format": "biome format --write apps",
-    "format:back": "biome format --write apps/ajudge-back",
-    "format:front": "biome format --write apps/ajudge-front",
-    "clean": "npm --workspace @ajudge/back run clean && npm --workspace @ajudge/front run clean"
+    "test": "npm --workspace @ajudge/back run test",
+    "lint": "npm --workspace @ajudge/front run lint && npm --workspace @ajudge/extension run lint",
+    "check": "npm run typecheck && npm run lint && npm run test",
+    "clean": "npm --workspace @ajudge/back run clean && npm --workspace @ajudge/front run clean && npm --workspace @ajudge/extension run clean"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.15",
-    "@swc/cli": "^0.8.1",
-    "@swc/core": "^1.15.21",
-    "concurrently": "^9.2.1",
-    "typescript": "~6.0.2"
+    "concurrently": "^9.2.1"
   }
 }

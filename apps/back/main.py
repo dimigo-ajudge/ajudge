@@ -186,6 +186,14 @@ def session_payload(session: Session) -> dict[str, str]:
     }
 
 
+def public_user(user: dict[str, Any]) -> dict[str, str]:
+    return {
+        key: value
+        for key in ("sub", "email", "name", "picture")
+        if isinstance((value := user.get(key)), str)
+    }
+
+
 def parse_allowed_origins() -> set[str]:
     origins = {
         origin.strip().rstrip("/")
@@ -275,7 +283,11 @@ class AjudgeHandler(BaseHTTPRequestHandler):
                 self._success({"permissions": []})
                 return
 
-            if method == "GET" and parsed.path == "/auth/logout":
+            if method == "GET" and parsed.path == "/auth/me":
+                self._success(public_user(self._require_session().user))
+                return
+
+            if method == "POST" and parsed.path == "/auth/logout":
                 access_token = self._access_token()
                 self._require_session()
                 SESSIONS.revoke(access_token)

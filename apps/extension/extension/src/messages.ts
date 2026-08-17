@@ -1,8 +1,8 @@
 import {
-  clearStoredSession,
   getBackendOrigin,
   getStoredSession,
   loginWithBackend,
+  logoutFromBackend,
   ping,
   setBackendOrigin,
   type AuthSession,
@@ -61,7 +61,7 @@ export async function handleExtensionMessage(
   }
 
   if (message.type === "auth:logout") {
-    await clearStoredSession();
+    await logoutFromBackend();
     return getAuthState();
   }
 

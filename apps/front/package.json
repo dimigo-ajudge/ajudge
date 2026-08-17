@@ -1,7 +1,7 @@
 {
   "name": "@ajudge/front",
-  "version": "0.0.0",
-  "description": "ajudge frontend",
+  "version": "0.1.0",
+  "description": "Ajudge authentication workspace.",
   "author": "lanzarote0tr <me@trillion-won.com>",
   "private": true,
   "license": "UNLICENSED",
@@ -17,8 +17,7 @@
     "axios": "^1.17.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "react-router-dom": "^7.14.2",
-    "styled-components": "^6.4.1"
+    "react-router-dom": "^7.14.2"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

@@ -10,6 +10,7 @@
     "build": "extension build --browser=chrome,edge,firefox --install=false",
     "dev": "extension dev --browser=chrome,firefox --install=false",
     "start": "extension start --browser=chrome --install=false",
+    "lint": "tsc --noEmit",
     "typecheck": "tsc --noEmit",
     "clean": "node -e \"fs.rmSync('dist', { recursive: true, force: true })\""
   },

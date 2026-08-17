@@ -78,6 +78,43 @@ class BackendTest(unittest.TestCase):
         self.assertEqual(status, 200)
         self.assertEqual(body["data"], "퐁")
 
+    def test_me_returns_public_google_profile(self) -> None:
+        session = backend.SESSIONS.issue(
+            {
+                "sub": "google-user",
+                "email": "user@example.com",
+                "name": "Example User",
+                "picture": "https://example.com/avatar.png",
+                "private": "not-exposed",
+            }
+        )
+        status, body = self.request("/auth/me", token=session.access_token)
+
+        self.assertEqual(status, 200)
+        self.assertEqual(
+            body["data"],
+            {
+                "sub": "google-user",
+                "email": "user@example.com",
+                "name": "Example User",
+                "picture": "https://example.com/avatar.png",
+            },
+        )
+
+    def test_logout_revokes_session(self) -> None:
+        session = backend.SESSIONS.issue({"sub": "google-user"})
+        status, body = self.request(
+            "/auth/logout",
+            method="POST",
+            payload={},
+            token=session.access_token,
+        )
+        self.assertEqual(status, 200)
+        self.assertEqual(body["data"], {"success": True})
+
+        status, _ = self.request("/auth/me", token=session.access_token)
+        self.assertEqual(status, 401)
+
     def test_callback_returns_extension_tokens(self) -> None:
         with patch.object(
             backend,

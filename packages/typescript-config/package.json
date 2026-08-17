@@ -6,9 +6,6 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./base": "./base.json",
-    "./back": "./back.json",
-    "./back-build": "./back-build.json",
-    "./back-test": "./back-test.json"
+    "./base": "./base.json"
   }
 }

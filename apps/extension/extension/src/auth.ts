@@ -12,6 +12,7 @@ export type AuthSession = {
 type ApiEnvelope<T> = {
   status?: number;
   data?: T;
+  message?: string;
 };
 
 function normalizeBackendOrigin(origin: string): string {
@@ -40,11 +41,14 @@ async function request<T>(
     },
   });
 
+  const body = (await response.json().catch(() => null)) as ApiEnvelope<T> | T | null;
   if (!response.ok) {
-    throw new Error(`Backend request failed with ${response.status}.`);
+    const message = body && typeof body === "object" && "message" in body ? body.message : null;
+    throw new Error(
+      typeof message === "string" ? message : `Backend request failed with ${response.status}.`,
+    );
   }
-
-  const body = (await response.json()) as ApiEnvelope<T> | T;
+  if (body === null) throw new Error("Backend returned an invalid response.");
   return unwrapEnvelope<T>(body);
 }
 
@@ -72,6 +76,20 @@ export async function getStoredSession(): Promise<AuthSession | null> {
 
 export async function clearStoredSession(): Promise<void> {
   await ExtensionPlatform.storageRemove(AUTH_SESSION_KEY);
+}
+
+export async function logoutFromBackend(): Promise<void> {
+  const session = await getStoredSession();
+  try {
+    if (session) {
+      await request<unknown>("/auth/logout", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${session.accessToken}` },
+      });
+    }
+  } finally {
+    await clearStoredSession();
+  }
 }
 
 async function storeSession(session: AuthSession): Promise<void> {
