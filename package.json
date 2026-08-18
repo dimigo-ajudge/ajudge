@@ -1,44 +1,33 @@
 {
-  "name": "ajudge",
-  "version": "0.0.0",
-  "description": "",
+  "name": "trustlayer",
+  "version": "0.1.0",
+  "description": "TrustLayer browser extension, web client, and authentication backend.",
   "author": "lanzarote0tr <me@trillion-won.com>",
   "license": "UNLICENSED",
   "private": true,
   "packageManager": "npm@10.9.4",
   "workspaces": [
     "apps/back",
+    "apps/extension",
     "apps/front",
-    "packages/biome-config",
     "packages/typescript-config"
   ],
   "scripts": {
-    "dev": "concurrently --kill-others-on-fail --names back,front \"npm --workspace @ajudge/back run dev\" \"npm --workspace @ajudge/front run dev\"",
-    "dev:back": "npm --workspace @ajudge/back run dev",
-    "dev:front": "npm --workspace @ajudge/front run dev",
-    "build": "npm --workspace @ajudge/back run build && npm --workspace @ajudge/front run build",
-    "build:back": "npm --workspace @ajudge/back run build",
-    "build:front": "npm --workspace @ajudge/front run build",
-    "typecheck": "npm --workspace @ajudge/back run typecheck && npm --workspace @ajudge/front run typecheck",
-    "check": "biome check apps",
-    "check:back": "biome check apps/ajudge-back",
-    "check:front": "biome check apps/ajudge-front",
-    "check:write": "biome check --write apps",
-    "check:write:back": "biome check --write apps/ajudge-back",
-    "check:write:front": "biome check --write apps/ajudge-front",
-    "lint": "biome lint apps",
-    "lint:back": "biome lint apps/ajudge-back",
-    "lint:front": "biome lint apps/ajudge-front",
-    "format": "biome format --write apps",
-    "format:back": "biome format --write apps/ajudge-back",
-    "format:front": "biome format --write apps/ajudge-front",
-    "clean": "npm --workspace @ajudge/back run clean && npm --workspace @ajudge/front run clean"
+    "dev": "concurrently --kill-others-on-fail --names back,front \"npm --workspace @trustlayer/back run dev\" \"npm --workspace @trustlayer/front run dev\"",
+    "dev:back": "npm --workspace @trustlayer/back run dev",
+    "dev:extension": "npm --workspace @trustlayer/extension run dev",
+    "dev:front": "npm --workspace @trustlayer/front run dev",
+    "build": "npm --workspace @trustlayer/back run build && npm --workspace @trustlayer/front run build && npm --workspace @trustlayer/extension run build",
+    "build:back": "npm --workspace @trustlayer/back run build",
+    "build:extension": "npm --workspace @trustlayer/extension run build",
+    "build:front": "npm --workspace @trustlayer/front run build",
+    "typecheck": "npm --workspace @trustlayer/back run typecheck && npm --workspace @trustlayer/front run typecheck && npm --workspace @trustlayer/extension run typecheck",
+    "test": "npm --workspace @trustlayer/back run test",
+    "lint": "npm --workspace @trustlayer/front run lint && npm --workspace @trustlayer/extension run lint",
+    "check": "npm run typecheck && npm run lint && npm run test",
+    "clean": "npm --workspace @trustlayer/back run clean && npm --workspace @trustlayer/front run clean && npm --workspace @trustlayer/extension run clean"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.15",
-    "@swc/cli": "^0.8.1",
-    "@swc/core": "^1.15.21",
-    "concurrently": "^9.2.1",
-    "typescript": "~6.0.2"
+    "concurrently": "^9.2.1"
   }
 }

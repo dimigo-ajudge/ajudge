@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "TrustLayer",
+  "version": "0.1.0",
+  "description": "Trust infrastructure companion extension for verifying SNS content.",
+  "permissions": ["identity", "storage"],
+  "host_permissions": ["http://localhost/*", "http://127.0.0.1/*", "https://*/*"],
+  "chrome:background": {
+    "service_worker": "extension/src/background.ts",
+    "type": "module"
+  },
+  "edge:background": {
+    "service_worker": "extension/src/background.ts",
+    "type": "module"
+  },
+  "firefox:background": {
+    "scripts": ["extension/src/background.ts"]
+  },
+  "firefox:browser_specific_settings": {
+    "gecko": {
+      "id": "trustlayer-extension@example.local",
+      "strict_min_version": "109.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "action": {
+    "default_title": "TrustLayer",
+    "default_popup": "extension/src/popup.html"
+  }
+}

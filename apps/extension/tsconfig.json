@@ -1,0 +1,13 @@
+{
+  "extends": "../../packages/typescript-config/base.json",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2022", "DOM"],
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true,
+    "types": []
+  },
+  "include": ["extension-env.d.ts", "webextension.d.ts", "extension/src/**/*.ts"]
+}

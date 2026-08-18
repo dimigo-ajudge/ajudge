@@ -1,14 +1,11 @@
 {
-  "name": "@ajudge/typescript-config",
+  "name": "@trustlayer/typescript-config",
   "version": "0.0.0",
-  "description": "Shared TypeScript configuration for ajudge",
+  "description": "Shared TypeScript configuration for TrustLayer",
   "license": "UNLICENSED",
   "private": true,
   "type": "module",
   "exports": {
-    "./base": "./base.json",
-    "./back": "./back.json",
-    "./back-build": "./back-build.json",
-    "./back-test": "./back-test.json"
+    "./base": "./base.json"
   }
 }

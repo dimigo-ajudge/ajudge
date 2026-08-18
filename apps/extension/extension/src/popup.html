@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrustLayer</title>
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <main class="panel">
+      <section class="window-bar">
+        <div class="window-title-wrap">
+          <span class="window-dot-logo">T</span>
+          <span class="window-title">TrustLayer</span>
+        </div>
+        <span class="window-powered">AI trust infrastructure</span>
+      </section>
+
+      <section class="panel-summary">
+        <span class="connection-mark" aria-hidden="true">T</span>
+        <div>
+          <h1>Connect TrustLayer</h1>
+          <p id="status">Checking session...</p>
+        </div>
+      </section>
+
+      <form id="backend-form" class="field">
+        <label for="backend-origin">Backend API</label>
+        <div class="input-row">
+          <input id="backend-origin" name="backend-origin" type="url" autocomplete="url" />
+          <button id="save-backend" type="submit">Save</button>
+        </div>
+      </form>
+
+      <div class="actions">
+        <button id="login" type="button">Continue with Google</button>
+        <button id="logout" class="secondary" type="button">Sign out</button>
+      </div>
+
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+    </main>
+    <script type="module" src="./popup.ts"></script>
+  </body>
+</html>

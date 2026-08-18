@@ -1,0 +1,21 @@
+{
+  "name": "@trustlayer/extension",
+  "version": "0.1.0",
+  "description": "Cross-browser WebExtension for TrustLayer.",
+  "author": "lanzarote0tr <me@trillion-won.com>",
+  "private": true,
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "build": "extension build --browser=chrome,edge,firefox --install=false",
+    "dev": "extension dev --browser=chrome,firefox --install=false",
+    "start": "extension start --browser=chrome --install=false",
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "clean": "node -e \"fs.rmSync('dist', { recursive: true, force: true })\""
+  },
+  "devDependencies": {
+    "extension": "latest",
+    "typescript": "~6.0.2"
+  }
+}
